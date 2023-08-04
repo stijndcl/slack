@@ -4,24 +4,24 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/slack-go/slack"
+	"github.com/stijndcl/slack"
 )
 
 func main() {
 	api := slack.New("YOUR_TOKEN_HERE")
-	r, err := os.Open("slack-go.png")
+	r, err := os.Open("stijndcl.png")
 	if err != nil {
 		fmt.Printf("%s\n", err)
 		return
 	}
 	defer r.Close()
 	remotefile, err := api.AddRemoteFile(slack.RemoteFileParameters{
-		ExternalID:            "slack-go",
-		ExternalURL:           "https://github.com/slack-go/slack",
-		Title:                 "slack-go",
+		ExternalID:            "stijndcl",
+		ExternalURL:           "https://github.com/stijndcl/slack",
+		Title:                 "stijndcl",
 		Filetype:              "go",
 		IndexableFileContents: "golang, slack",
-		// PreviewImage:          "slack-go.png",
+		// PreviewImage:          "stijndcl.png",
 		PreviewImageReader: r,
 	})
 	if err != nil {
@@ -47,9 +47,9 @@ func main() {
 	fmt.Printf("remote files: %v\n", remotefiles)
 
 	remotefile, err = api.UpdateRemoteFile(remotefile.ID, slack.RemoteFileParameters{
-		ExternalID:            "slack-go",
-		ExternalURL:           "https://github.com/slack-go/slack",
-		Title:                 "slack-go",
+		ExternalID:            "stijndcl",
+		ExternalURL:           "https://github.com/stijndcl/slack",
+		Title:                 "stijndcl",
 		Filetype:              "go",
 		IndexableFileContents: "golang, slack, github",
 	})

@@ -8,7 +8,7 @@ import (
 
 	"github.com/gorilla/websocket"
 
-	"github.com/slack-go/slack"
+	"github.com/stijndcl/slack"
 )
 
 // EventType is the type of events that are emitted by scoketmode.Client.
@@ -110,7 +110,7 @@ func New(api *slack.Client, options ...Option) *Client {
 		Events:              make(chan Event, 50),
 		socketModeResponses: make(chan *Response, 20),
 		maxPingInterval:     defaultMaxPingInterval,
-		log:                 log.New(os.Stderr, "slack-go/slack/socketmode", log.LstdFlags|log.Lshortfile),
+		log:                 log.New(os.Stderr, "stijndcl/slack/socketmode", log.LstdFlags|log.Lshortfile),
 	}
 
 	for _, opt := range options {
